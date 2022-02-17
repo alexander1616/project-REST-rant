@@ -4,6 +4,8 @@ const express = require('express');
 // console.log(express);
 const app = express();
 
+app.use('/places', require('./controllers/places'))
+
 app.get ('/', (req, res) => {
     // console.log('We did it!');
     res.send('PAGE CONTENT');
