@@ -9,6 +9,10 @@ app.get ('/', (req, res) => {
     res.send('PAGE CONTENT');
 })
 
+app.get('*', (req, res) => {
+    res.status(404).send('<h1>404 Page</h1>');
+})
+
 app.get ('/second', function(req, res) {
     res.send('My Second Page');
 })
