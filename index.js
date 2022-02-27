@@ -1,15 +1,22 @@
-require('dotenv').config();
-
 const express = require('express');
-// console.log(express);
 const app = express();
 
-app.use('/places', require('./controllers/places'))
+//config
+require('dotenv').config();
+const PORT = process.env.PORT
 
+//rendering engine
+app.set('views', __dirname + '/views')
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
+//routes
 app.get ('/', (req, res) => {
-    // console.log('We did it!');
     res.send('PAGE CONTENT');
 })
+
+// Breads
+const breadsController = require('./controllers')
 
 app.get('*', (req, res) => {
     res.status(404).send('<h1>404 Page</h1>');
