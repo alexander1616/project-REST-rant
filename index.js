@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+//const appController = require('/controllers')
+
 //config
 require('dotenv').config();
 const PORT = process.env.PORT
@@ -37,8 +39,6 @@ app.get ('/', (req, res) => {
     res.render('places/index', {places});
 })
 
-// Breads
-const breadsController = require('./controllers')
 
 app.get('*', (req, res) => {
     res.status(404).render('<h1>404 Page</h1>');
